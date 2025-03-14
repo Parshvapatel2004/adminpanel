@@ -47,8 +47,8 @@ function Main() {
   ];
 
   return (
-    <div className="right_col" role="main">
-      <div>
+    <div className="right_col" role="main" style={{ minHeight: "100vh" }}>
+      <div className="mb-5">
         <div className="page-title">
           <div className="title_left">
             <h3>

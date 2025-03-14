@@ -25,7 +25,7 @@ function Main() {
 function Header() {
   return (
     <>
-      <div className="right_col" role="main">
+      <div className="right_col" role="main" style={{ minHeight: "100vh" }}>
         {/* top tiles */}
         <div className="row" style={{ display: "inline-block" }}>
           <div className="tile_count">

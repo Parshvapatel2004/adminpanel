@@ -10,7 +10,7 @@ const Login = () => {
 
 function Main() {
   return (
-    <div className="bg-white overflow_hidden" style={{ height: "100vh" }}>
+    <div className="bg-white overflow_hidden" style={{ minHeight: "100vh" }}>
       <div className="login_wrapper">
         <div className="animate form login_form">
           <section className="login_content">

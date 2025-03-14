@@ -110,6 +110,7 @@ function Main() {
                   </ul>
                 </li>
                 <li>
+                  {/* Manage Menu */}
                   <a href="#" onClick={() => toggleSubmenu("manage")}>
                     <i className="fa fa-edit"></i> Manage
                     <span
@@ -133,6 +134,34 @@ function Main() {
                     </li>
                     <li>
                       <Link to="/manage_properties">Manage Properties</Link>
+                    </li>
+                    <li>
+                      <Link to="/manage_feedbacks">Manage Feedbacks</Link>
+                    </li>
+                    <li>
+                      <Link to="/manage_complains">Manage Complains</Link>
+                    </li>
+                  </ul>
+                </li>
+                {/* Payment Menu */}
+                <li>
+                  <a href="#" onClick={() => toggleSubmenu("payment")}>
+                    <i className="fa fa-money"></i>Payments
+                    <span
+                      className={`fa ${
+                        openMenu == "payment"
+                          ? "fa-chevron-up"
+                          : "fa-chevron-down"
+                      }`}
+                    ></span>
+                  </a>
+                  <ul
+                    className={`nav child_menu ${
+                      openMenu == "payment" ? "d-block" : "d-none"
+                    }`}
+                  >
+                    <li>
+                      <Link to={"/view_payments"}>View Payments</Link>
                     </li>
                   </ul>
                 </li>

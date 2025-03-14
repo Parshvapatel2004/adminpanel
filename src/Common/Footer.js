@@ -3,19 +3,26 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <Main />
-    </>
-  );
-};
-function Main() {
-  return (
-    <>
-      <footer>
-        <div className="pull-right">Renting Properties</div>
-        <div className="clearfix" />
+      <footer className="footer text-center py-3">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6 text-md-start">
+              <h5 className="mb-0">🏠 Renting Properties Admin Panel</h5>
+              <p className="small mb-0">
+                Efficiently manage properties & transactions
+              </p>
+            </div>
+            <div className="col-md-6 text-md-end">
+              <p className="small mb-0">
+                © {new Date().getFullYear()} Renting Properties. All rights
+                reserved.
+              </p>
+            </div>
+          </div>
+        </div>
       </footer>
     </>
   );
-}
+};
 
 export default Footer;
