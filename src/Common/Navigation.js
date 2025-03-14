@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  return <div>
-    <Main/>
-  </div>;
+  return (
+    <>
+      <Main />
+    </>
+  );
 };
+
 function Main() {
   return (
     <>
@@ -12,14 +16,14 @@ function Main() {
         <div className="nav_menu">
           <div className="nav toggle">
             <a id="menu_toggle">
-              <i className="fa fa-bars" />
+              <i className="fa fa-bars"></i>
             </a>
           </div>
           <nav className="nav navbar-nav">
             <ul className=" navbar-right">
               <li
                 className="nav-item dropdown open"
-                style={{ paddingLeft: 15 }}
+                style={{ paddingLeft: "15px" }}
               >
                 <a
                   href="javascript:;"
@@ -29,29 +33,23 @@ function Main() {
                   data-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img src="images/img.jpg" alt />
-                  John Doe
+                  <img src="images/img.jpg" alt="" />
+                  Admin
                 </a>
                 <div
                   className="dropdown-menu dropdown-usermenu pull-right"
                   aria-labelledby="navbarDropdown"
                 >
-                  <a className="dropdown-item" href="javascript:;">
+                  <Link className="dropdown-item" to={"/profile"}>
                     {" "}
                     Profile
-                  </a>
-                  <a className="dropdown-item" href="javascript:;">
-                    <span className="badge bg-red pull-right">50%</span>
-                    <span>Settings</span>
-                  </a>
-                  <a className="dropdown-item" href="javascript:;">
-                    Help
-                  </a>
-                  <a className="dropdown-item" href="login.html">
-                    <i className="fa fa-sign-out pull-right" /> Log Out
-                  </a>
+                  </Link>
+                  <Link className="dropdown-item" to={"/login"}>
+                    <i className="fa fa-sign-out pull-right"></i> Log Out
+                  </Link>
                 </div>
               </li>
+
               <li role="presentation" className="nav-item dropdown open">
                 <a
                   href="javascript:;"
@@ -60,7 +58,7 @@ function Main() {
                   data-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i className="fa fa-envelope-o" />
+                  <i className="fa fa-envelope-o"></i>
                   <span className="badge bg-green">6</span>
                 </a>
                 <ul
@@ -74,7 +72,7 @@ function Main() {
                         <img src="images/img.jpg" alt="Profile Image" />
                       </span>
                       <span>
-                        <span>John Smith</span>
+                        <span>Admin</span>
                         <span className="time">3 mins ago</span>
                       </span>
                       <span className="message">
@@ -89,7 +87,7 @@ function Main() {
                         <img src="images/img.jpg" alt="Profile Image" />
                       </span>
                       <span>
-                        <span>John Smith</span>
+                        <span>Admin</span>
                         <span className="time">3 mins ago</span>
                       </span>
                       <span className="message">
@@ -104,7 +102,7 @@ function Main() {
                         <img src="images/img.jpg" alt="Profile Image" />
                       </span>
                       <span>
-                        <span>John Smith</span>
+                        <span>Admin</span>
                         <span className="time">3 mins ago</span>
                       </span>
                       <span className="message">
@@ -119,7 +117,7 @@ function Main() {
                         <img src="images/img.jpg" alt="Profile Image" />
                       </span>
                       <span>
-                        <span>John Smith</span>
+                        <span>Admin</span>
                         <span className="time">3 mins ago</span>
                       </span>
                       <span className="message">
@@ -132,7 +130,7 @@ function Main() {
                     <div className="text-center">
                       <a className="dropdown-item">
                         <strong>See All Alerts</strong>
-                        <i className="fa fa-angle-right" />
+                        <i className="fa fa-angle-right"></i>
                       </a>
                     </div>
                   </li>

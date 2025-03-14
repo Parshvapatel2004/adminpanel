@@ -1,23 +1,30 @@
 import React from "react";
-import Slider from "../Common/Slider";
 import Navigation from "../Common/Navigation";
+import Slider from "../Common/Slider";
 import Footer from "../Common/Footer";
 
 const Home = () => {
   return (
-    <div>
-      <Navigation />
+    <>
       <Slider />
+      <Navigation />
       <Main />
       <Footer />
-    </div>
+    </>
   );
 };
 
 function Main() {
   return (
     <>
-      {/* page content */}
+      <Header />
+    </>
+  );
+}
+
+function Header() {
+  return (
+    <>
       <div className="right_col" role="main">
         {/* top tiles */}
         <div className="row" style={{ display: "inline-block" }}>
