@@ -102,7 +102,6 @@ function Main() {
             </div>
           </div>
         </div>
-
         <div className="clearfix" />
         <div className="row">
           <div className="col-md-12">

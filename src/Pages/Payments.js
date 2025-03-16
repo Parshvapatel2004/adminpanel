@@ -220,7 +220,7 @@ function Main() {
                                     handleMarkCompleted(payment.id)
                                   }
                                 >
-                                  Mark as Completed
+                                  Update Status
                                 </button>
                               )}
                               <button
@@ -243,7 +243,7 @@ function Main() {
 
         {/* View Payment Modal */}
         {selectedPayment && (
-          <div className="modal-overlay">
+          <div className="modal-overlay" style={{ marginBottom: "70px" }}>
             <div className="modal-content px-5 py-3">
               <h3 className="pb-2">Payment Details</h3>
               <p>

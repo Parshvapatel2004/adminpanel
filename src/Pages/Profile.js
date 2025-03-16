@@ -53,10 +53,12 @@ function Main() {
   };
 
   return (
-    <div className="right_col" role="main">
-      <div className="page-title">
-        <div className="title_left">
-          <h3>Admin Profile</h3>
+    <div className="right_col" role="main" style={{ minHeight: "100vh" }}>
+      <div className="mb-5">
+        <div className="page-title">
+          <div className="title_left">
+            <h3>Admin Profile</h3>
+          </div>
         </div>
       </div>
       <div className="clearfix" />

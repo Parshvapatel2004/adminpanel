@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "../Common/Slider";
 import Navigation from "../Common/Navigation";
 import Footer from "../Common/Footer";
@@ -15,17 +15,16 @@ const ManageOwners = () => {
 };
 
 function Main() {
-  // Sample Owner Data
-  const owners = [
+  // Sample Owner Data with State
+  const [owners, setOwners] = useState([
     {
       id: "O001",
       name: "John Doe",
       email: "johndoe@example.com",
       contact: "+91 9054800900",
-      avatar: "images/user.png",
+      avatar: "images/picture.jpg",
       propertiesOwned: 5,
       status: "Active",
-      actions: ["View", "Edit", "Delete"],
     },
     {
       id: "O002",
@@ -35,7 +34,6 @@ function Main() {
       avatar: "images/user.png",
       propertiesOwned: 3,
       status: "Inactive",
-      actions: ["View", "Edit", "Delete"],
     },
     {
       id: "O003",
@@ -45,9 +43,22 @@ function Main() {
       avatar: "images/user.png",
       propertiesOwned: 7,
       status: "Active",
-      actions: ["View", "Edit", "Delete"],
     },
-  ];
+  ]);
+
+  const [selectedOwner, setSelectedOwner] = useState(null);
+
+  // Function to handle View action
+  const handleView = (owner) => {
+    setSelectedOwner(owner);
+  };
+
+  // Function to handle Delete action
+  const handleDelete = (ownerId) => {
+    if (window.confirm("Are you sure you want to delete this owner?")) {
+      setOwners(owners.filter((owner) => owner.id !== ownerId));
+    }
+  };
 
   return (
     <div className="right_col" role="main" style={{ minHeight: "100vh" }}>
@@ -58,22 +69,6 @@ function Main() {
               Manage Owners <small>Details</small>
             </h3>
           </div>
-          <div className="title_right">
-            <div className="col-md-5 col-sm-5 form-group pull-right top_search">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search owners..."
-                />
-                <span className="input-group-btn">
-                  <button className="btn btn-secondary" type="button">
-                    Go!
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
         <div className="clearfix" />
         <div className="row">
@@ -81,96 +76,123 @@ function Main() {
             <div className="x_panel">
               <div className="x_title">
                 <h2>Owners List</h2>
-                <ul className="nav navbar-right panel_toolbox">
-                  <li>
-                    <a className="collapse-link">
-                      <i className="fa fa-chevron-up" />
-                    </a>
-                  </li>
-                </ul>
                 <div className="clearfix" />
               </div>
               <div className="x_content">
-                <p>List of all property owners.</p>
-                {/* Start owners list */}
-                <table className="table table-striped projects">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Owner</th>
-                      <th>Email</th>
-                      <th>Contact</th>
-                      <th>Properties Owned</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {owners.map((owner, index) => (
-                      <tr key={owner.id}>
-                        <td>{index + 1}</td>
-                        <td>
-                          <img
-                            src={owner.avatar}
-                            className="rounded-circle"
-                            alt="Owner Avatar"
-                            style={{
-                              width: "40px",
-                              height: "40px",
-                              objectFit: "cover",
-                              marginRight: "10px",
-                            }}
-                          />
-                          {owner.name}
-                        </td>
-                        <td>{owner.email}</td>
-                        <td>{owner.contact}</td>
-                        <td>{owner.propertiesOwned}</td>
-                        <td>
-                          <span
-                            className={`badge ${
-                              owner.status === "Active" ? "bg-green" : "bg-red"
-                            }`}
-                          >
-                            {owner.status}
-                          </span>
-                        </td>
-                        <td>
-                          {owner.actions.map((action, actionIndex) => (
-                            <a
-                              key={actionIndex}
-                              href="#"
-                              className={`btn btn-xs ${
-                                action === "View"
-                                  ? "btn-primary"
-                                  : action === "Edit"
-                                  ? "btn-warning"
-                                  : "btn-danger"
-                              } m-1`}
-                            >
-                              <i
-                                className={`fa ${
-                                  action === "View"
-                                    ? "fa-eye"
-                                    : action === "Edit"
-                                    ? "fa-pencil"
-                                    : "fa-trash"
+                {owners.length === 0 ? (
+                  <p>No owners available.</p>
+                ) : (
+                  <>
+                    <p>List of all property owners.</p>
+                    <table className="table table-striped projects">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Owner</th>
+                          <th>Email</th>
+                          <th>Contact</th>
+                          <th>Properties Owned</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {owners.map((owner, index) => (
+                          <tr key={owner.id}>
+                            <td>{index + 1}</td>
+                            <td>
+                              <img
+                                src={owner.avatar}
+                                className="rounded-circle"
+                                alt="Owner Avatar"
+                                style={{
+                                  width: "40px",
+                                  height: "40px",
+                                  objectFit: "cover",
+                                  marginRight: "10px",
+                                }}
+                              />
+                              {owner.name}
+                            </td>
+                            <td>{owner.email}</td>
+                            <td>{owner.contact}</td>
+                            <td>{owner.propertiesOwned}</td>
+                            <td>
+                              <span
+                                className={`badge ${
+                                  owner.status === "Active"
+                                    ? "bg-green"
+                                    : "bg-red"
                                 }`}
-                              />{" "}
-                              {action}
-                            </a>
-                          ))}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                {/* End owners list */}
+                              >
+                                {owner.status}
+                              </span>
+                            </td>
+                            <td>
+                              <button
+                                className="btn btn-xs btn-primary m-1"
+                                onClick={() => handleView(owner)}
+                              >
+                                <i className="fa fa-eye" /> View
+                              </button>
+                              <button
+                                className="btn btn-xs btn-danger m-1"
+                                onClick={() => handleDelete(owner.id)}
+                              >
+                                <i className="fa fa-trash" /> Delete
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* View Owner Modal */}
+      {selectedOwner && (
+        <div className="modal-overlay" style={{ marginBottom: "70px" }}>
+          <div className="modal-content px-5 py-3">
+            <h3 className="pb-2">Owner Details</h3>
+            <img
+              src={selectedOwner.avatar}
+              className="rounded-circle mb-3"
+              alt="Owner Avatar"
+              style={{ width: "80px", height: "80px", objectFit: "cover" }}
+            />
+            <p>
+              <strong>ID:</strong> {selectedOwner.id}
+            </p>
+            <p>
+              <strong>Name:</strong> {selectedOwner.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {selectedOwner.email}
+            </p>
+            <p>
+              <strong>Contact:</strong> {selectedOwner.contact}
+            </p>
+            <p>
+              <strong>Properties Owned:</strong> {selectedOwner.propertiesOwned}
+            </p>
+            <p>
+              <strong>Status:</strong> {selectedOwner.status}
+            </p>
+
+            <button
+              className="btn btn-secondary"
+              onClick={() => setSelectedOwner(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

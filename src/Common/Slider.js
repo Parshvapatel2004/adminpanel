@@ -57,7 +57,7 @@ function Main() {
               <ul className="nav side-menu">
                 {/* Home Menu */}
                 <li>
-                  <a href="#" onClick={() => toggleSubmenu("home")}>
+                  <Link to={""} onClick={() => toggleSubmenu("home")}>
                     <i className="fa fa-home"></i> Home
                     <span
                       className={`fa ${
@@ -66,7 +66,7 @@ function Main() {
                           : "fa-chevron-down"
                       }`}
                     ></span>
-                  </a>
+                  </Link>
                   <ul
                     className={`nav child_menu ${
                       openMenu === "home" ? "d-block" : "d-none"
@@ -75,18 +75,12 @@ function Main() {
                     <li>
                       <Link to="/">Dashboard</Link>
                     </li>
-                    <li>
-                      <Link to="/dashboard2">Dashboard2</Link>
-                    </li>
-                    <li>
-                      <Link to="/dashboard3">Dashboard3</Link>
-                    </li>
                   </ul>
                 </li>
 
                 {/* Tables Menu */}
                 <li>
-                  <a href="#" onClick={() => toggleSubmenu("tables")}>
+                  <Link to={""} onClick={() => toggleSubmenu("tables")}>
                     <i className="fa fa-table"></i> Tables
                     <span
                       className={`fa ${
@@ -95,7 +89,7 @@ function Main() {
                           : "fa-chevron-down"
                       }`}
                     ></span>
-                  </a>
+                  </Link>
                   <ul
                     className={`nav child_menu ${
                       openMenu === "tables" ? "d-block" : "d-none"
@@ -111,7 +105,7 @@ function Main() {
                 </li>
                 <li>
                   {/* Manage Menu */}
-                  <a href="#" onClick={() => toggleSubmenu("manage")}>
+                  <Link to={""} onClick={() => toggleSubmenu("manage")}>
                     <i className="fa fa-edit"></i> Manage
                     <span
                       className={`fa ${
@@ -120,7 +114,7 @@ function Main() {
                           : "fa-chevron-down"
                       }`}
                     ></span>
-                  </a>
+                  </Link>
                   <ul
                     className={`nav child_menu ${
                       openMenu === "manage" ? "d-block" : "d-none"
@@ -141,11 +135,14 @@ function Main() {
                     <li>
                       <Link to="/manage_complains">Manage Complains</Link>
                     </li>
+                    <li>
+                      <Link to="/manage_inquiries">Manage Inquiries</Link>
+                    </li>
                   </ul>
                 </li>
                 {/* Payment Menu */}
                 <li>
-                  <a href="#" onClick={() => toggleSubmenu("payment")}>
+                  <Link href="#" onClick={() => toggleSubmenu("payment")}>
                     <i className="fa fa-money"></i>Payments
                     <span
                       className={`fa ${
@@ -154,7 +151,7 @@ function Main() {
                           : "fa-chevron-down"
                       }`}
                     ></span>
-                  </a>
+                  </Link>
                   <ul
                     className={`nav child_menu ${
                       openMenu == "payment" ? "d-block" : "d-none"
@@ -171,35 +168,52 @@ function Main() {
 
           {/* Footer Buttons */}
           <div className="sidebar-footer hidden-small">
-            <a data-toggle="tooltip" data-placement="top" title="Settings">
-              <span
-                className="glyphicon glyphicon-cog"
-                aria-hidden="true"
-              ></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-              <span
-                className="glyphicon glyphicon-fullscreen"
-                aria-hidden="true"
-              ></span>
-            </a>
-            <a data-toggle="tooltip" data-placement="top" title="Lock">
-              <span
-                className="glyphicon glyphicon-eye-close"
-                aria-hidden="true"
-              ></span>
-            </a>
-            <a
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Logout"
-              href="login.html"
-            >
-              <span
-                className="glyphicon glyphicon-off"
-                aria-hidden="true"
-              ></span>
-            </a>
+            <div>
+              <Link
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Settings"
+                to={"/settings"}
+              >
+                <span
+                  className="glyphicon glyphicon-cog"
+                  aria-hidden="true"
+                ></span>
+              </Link>
+              <Link
+                data-toggle="tooltip"
+                data-placement="top"
+                title="FullScreen"
+                to={"#"}
+              >
+                <span
+                  className="glyphicon glyphicon-fullscreen"
+                  aria-hidden="true"
+                ></span>
+              </Link>
+              <Link
+                data-toggle="tooltip"
+                data-placement="top"
+                title="View Profile"
+                to={"/profile"}
+              >
+                <span
+                  className="glyphicon glyphicon-user "
+                  aria-hidden="true"
+                ></span>
+              </Link>
+              <Link
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Logout"
+                to={"/login"}
+              >
+                <span
+                  className="glyphicon glyphicon-off"
+                  aria-hidden="true"
+                ></span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

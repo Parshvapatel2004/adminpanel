@@ -6,8 +6,10 @@ import ManageProperites from "./Pages/ManageProperties";
 import ManageUsers from "./Pages/ManageUsers";
 import ManageOwners from "./Pages/ManageOwners";
 import Feedback from "./Pages/Feedback";
-import Complaints from "./Pages/Complains";
+import Complains from "./Pages/Complains";
 import Payments from "./Pages/Payments";
+import Inquiries from "./Pages/Inquiries";
+import ManageProperties from "./Pages/ManageProperties";
 
 function App() {
   return (
@@ -17,12 +19,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/view_payments" element={<Payments/>}/>
+          <Route path="/view_payments" element={<Payments />} />
           <Route path="/manage_feedbacks" element={<Feedback />} />
-          <Route path="/manage_complains" element={<Complaints/>}/>
+          <Route path="/manage_inquiries" element={<Inquiries />} />
+          <Route path="/manage_complains" element={<Complains />} />
           <Route path="/manage_users" element={<ManageUsers />} />
           <Route path="/manage_owners" element={<ManageOwners />} />
-          <Route path="/manage_properties" element={<ManageProperites />} />
+          <Route path="/manage_properties" element={<ManageProperties/>} />
         </Routes>
       </BrowserRouter>
     </>

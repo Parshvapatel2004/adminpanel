@@ -78,7 +78,7 @@ function Main() {
 
   return (
     <div className="right_col" role="main" style={{ minHeight: "100vh" }}>
-      <div className="mb-5">
+      <div className=" mb-5">
         <div className="page-title">
           <div className="title_left">
             <h3>User Feedback</h3>
@@ -178,7 +178,7 @@ function Main() {
 
       {/* Profile Modal */}
       {selectedProfile && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" style={{ marginBottom: "70px" }}>
           <div className="modal-content px-5 py-3">
             <h3>User Profile</h3>
             <img
