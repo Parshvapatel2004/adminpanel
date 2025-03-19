@@ -158,7 +158,7 @@ function Main() {
                     }`}
                   >
                     <li>
-                      <Link to={"/view_payments"}>View Payments</Link>
+                      <Link to={"/manage_payments"}>Manage Payments</Link>
                     </li>
                   </ul>
                 </li>

@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/view_payments" element={<Payments />} />
+          <Route path="/manage_payments" element={<Payments />} />
           <Route path="/manage_feedbacks" element={<Feedback />} />
           <Route path="/manage_inquiries" element={<Inquiries />} />
           <Route path="/manage_complains" element={<Complains />} />

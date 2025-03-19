@@ -190,7 +190,7 @@ function Main() {
                             <td>
                               {payment.owner} ({payment.ownerId})
                             </td>
-                            <td>${payment.amount}</td>
+                            <td>₹{payment.amount}</td>
                             <td>{payment.method}</td>
                             <td>{payment.date}</td>
                             <td>
